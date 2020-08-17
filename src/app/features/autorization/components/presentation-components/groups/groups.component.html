@@ -1,0 +1,52 @@
+<mat-card>
+      <mat-card-header>
+        <div class="grid-container-filters">
+          <div>
+            <mat-card-title>Groups</mat-card-title>
+            <mat-card-subtitle>{{ groupSelected$.getValue()?.name ? groupSelected$.getValue()?.name + ' selected' : 'Select please' }}</mat-card-subtitle>
+          </div>
+          <div>
+            <mat-form-field class="filter">
+              <mat-label>Search</mat-label>
+              <input matInput autocomplete="off"
+                     [disabled]="(groupSelected?.name?.length || 0) <= 0"
+                     #textFilterInput
+                     (keyup)="textFilterInputChange(textFilterInput.value)">
+            </mat-form-field>
+          </div>
+        </div>
+      </mat-card-header>
+
+      <mat-card-content class="scrollable-content">
+        <mat-selection-list [multiple]="false" #selection>
+          <mat-list-option *ngFor="let group of groupsFiltered$ | async"
+                           (click)="groupSelected(group)">
+            {{ group.name }}
+          </mat-list-option>
+        </mat-selection-list>
+      </mat-card-content>
+
+      <mat-card-actions>
+        <div class="button-row">
+          <span matTooltip="Create">
+            <button (click)="onCreate()" mat-fab color="accent"
+                    [disabled]="false">
+              <mat-icon>add</mat-icon>
+            </button>
+          </span>
+          <span matTooltip="Edit">
+              <button (click)="onEdit()" mat-fab color="primary"
+                      [disabled]="!selection.selectedOptions.selected[0]">
+                <mat-icon>edit</mat-icon>
+              </button>
+            </span>
+          <span matTooltip="Delete">
+            <button (click)="selection.selectedOptions.clear(); onDelete()" mat-fab color="warn"
+                    [disabled]="!selection.selectedOptions.selected[0]">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </span>
+        </div>
+      </mat-card-actions>
+
+    </mat-card>

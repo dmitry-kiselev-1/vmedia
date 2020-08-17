@@ -1,0 +1,39 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Groups</mat-card-title>
+  </mat-card-header>
+
+  <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+
+  <mat-card-content>
+      <mat-form-field hintLabel="Max 50 characters" appearance="fill">
+        <mat-label>Enter Group Name</mat-label>
+        <input matInput #inputGroupName formControlName="groupName" maxlength="50"
+               placeholder="Group Name" autocomplete="off">
+        <mat-hint align="end"> {{ inputGroupName.value?.length || 0 }} / 50 </mat-hint>
+      </mat-form-field>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <div class="button-row">
+          <span matTooltip="Save">
+            <button type="submit"
+                    mat-fab color="primary"
+                    [disabled]="this.formGroup.invalid">
+              <mat-icon>save</mat-icon>
+            </button>
+          </span>
+          <span matTooltip="Cancel">
+            <button (click)="onCancel()"
+                    mat-fab color="accent"
+                    [disabled]="false">
+            <mat-icon>cancel</mat-icon>
+            </button>
+          </span>
+    </div>
+  </mat-card-actions>
+
+  </form>
+
+</mat-card>
+

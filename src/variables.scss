@@ -1,0 +1,10 @@
+$fixed-elements-height: 516px;
+$pager-element-height: 66px;
+
+$scrollable-content-max-height: calc(100vh - #{$fixed-elements-height});
+$scrollable-content-max-height-responsive: calc(100vh - #{$fixed-elements-height});
+
+$layout-description-text-color: lightgray; /*#f1f1f1*/
+
+$pageable-content-max-height: calc(100vh - #{$fixed-elements-height} - #{$pager-element-height});
+$pageable-content-max-height-responsive: calc(100vh - #{$fixed-elements-height} - #{$pager-element-height});

@@ -1,0 +1,53 @@
+@import "src/variables.scss";
+
+/* CSS Grid */
+.grid-container-filters {
+  display: grid;
+  grid-template-columns: 2fr 2fr 0.5fr;
+  grid-column-gap: 1em;
+  padding: 0em;
+  margin: 0em;
+}
+
+/* Scrollable Layout */
+.scrollable-content {
+  overflow: auto;
+  height: $scrollable-content-max-height;
+}
+
+/* Pageable Layout */
+.pageable-content {
+  overflow: auto;
+  height: $pageable-content-max-height;
+}
+
+.filter {
+  width: 100%;
+  min-width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+/* Responsive Layout */
+@media only screen and (max-width: 768px) {
+  .scrollable-content {
+    height: $scrollable-content-max-height-responsive;
+  }
+  .pageable-content {
+    overflow: auto;
+    height: $pageable-content-max-height-responsive;
+  }
+
+  .grid-container-filters  {
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    grid-gap: 1em;
+    padding: 0.5em;
+  }
+
+  .filter {
+    width: 100%;
+    min-width: 100%;
+  }
+}
+

@@ -1,0 +1,2 @@
+ng g c ./features/autorization/components/presentation-components/groups --module ./features/autorization/autorization.module.ts
+ng g c ./features/autorization/components/smart-components/group-form --module ./features/autorization/autorization.module.ts

@@ -1,0 +1,42 @@
+@import "src/variables.scss";
+
+/* CSS Grid Layout */
+.header { grid-area: header; color: $layout-description-text-color}
+.menu   { grid-area: menu; color: $layout-description-text-color }
+.main   { grid-area: main; min-height: 10em; color: $layout-description-text-color }
+.footer { grid-area: footer; color: $layout-description-text-color }
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+        'header header header'
+        'menu   main   main'
+        'menu   footer footer';
+  grid-template-columns: 0.1fr 1fr 1fr;
+  grid-template-rows: auto auto auto;
+  grid-gap: 0.5em;
+  padding: 0.5em;
+  background-color: transparent;
+}
+
+/* CSS Grid Responsive Layout */
+@media only screen and (max-width: 768px) {
+  .grid-container  {
+    grid-template-areas:
+      'header'
+      'menu'
+      'main'
+      'footer';
+    grid-template-columns: auto;
+  }
+}
+
+.app-header { padding-left: 0.25em; padding-top: 0.25em; margin: 0; color: lightgray; text-align: center; }
+
+/* Should be removed - for demonstration only! */
+.grid-container > div {
+  background-color: #f1f1f1;
+  text-align: left;
+  padding: 1.5em;
+}
+

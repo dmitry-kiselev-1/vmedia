@@ -1,0 +1,29 @@
+<mat-tab-group mat-align-tabs="end">
+
+  <mat-tab label="Groups & Roles">
+    <div class="grid-container">
+      <div>
+        <app-groups
+          [groups]="groups$ | async"
+          (delete)="groupDelete($event)"
+          (create)="groupCreate()"
+          (edit)="groupEdit($event)"
+          (selected)="groupSelected($event)">
+        </app-groups>
+      </div>
+      <div>
+        <app-roles
+          [roles]="roles$ | async"
+          [groupSelected]="groupSelected$ | async"
+          (pageChange)="rolesPageChange($event)"
+          (save)="selectedRolesSave($event)"
+          [rolesCount]="rolesCount$ | async">
+        </app-roles>
+      </div>
+    </div>
+  </mat-tab>
+
+  <mat-tab label="Roles & Rights">
+  </mat-tab>
+
+</mat-tab-group>

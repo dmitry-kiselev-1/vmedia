@@ -1,0 +1,85 @@
+<mat-card>
+
+  <mat-card-header>
+
+    <div class="grid-container-filters">
+      <div>
+        <mat-card-title>Roles</mat-card-title>
+        <mat-card-subtitle>{{ groupSelected?.name ? groupSelected?.name + ' roles' : 'Select please' }}</mat-card-subtitle>
+      </div>
+      <div>
+        <mat-form-field class="filter">
+          <mat-label>Search</mat-label>
+          <input matInput autocomplete="off"
+                 [disabled]="(groupSelected?.name?.length || 0) <= 0"
+                 #textFilterInput
+                 (keyup)="propertyFilterSelection.value = 'Show All'; textFilterInputChange(textFilterInput.value)">
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="fill" class="filter">
+          <mat-label>Selection Filter</mat-label>
+          <mat-select [disabled]="(groupSelected?.name?.length || 0) <= 0"
+                      #propertyFilterSelection
+                      (selectionChange)="textFilterInput.value = ''; propertyFilterSelectionChange($event)"
+                      [value]="'Show All'">
+            <mat-option value="Show All"> Show All </mat-option>
+            <mat-option value="Show Checked"> Show Checked </mat-option>
+            <mat-option value="Show Unchecked"> Show Unchecked </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+
+  </mat-card-header>
+
+  <mat-card-content class="pageable-content">
+    <mat-selection-list [multiple]="false" role="listbox" #selectionList>
+      <mat-list-option role="option" *ngFor="let role of rolesFiltered$ | async"
+                       (click)="role.selected = !role.selected">
+        <mat-checkbox #selectionCheckbox
+            (click)="role.selected = selectionCheckbox.checked"
+            [checked]="role.selected"
+            [color]="'primary'"
+            aria-label="{{ role?.name }}">
+            {{ role?.name }}
+        </mat-checkbox>
+
+      </mat-list-option>
+    </mat-selection-list>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <div class="button-row">
+          <span matTooltip="Save">
+            <button (click)="onSave()"
+                    mat-fab color="primary"
+                    [disabled]="(groupSelected?.name?.length || 0) <= 0">
+              <mat-icon>save</mat-icon>
+            </button>
+          </span>
+          <span matTooltip="Select All">
+            <button (click)="selectAll()"
+                    mat-fab color="accent"
+                    [disabled]="(groupSelected?.name?.length || 0) <= 0">
+            <mat-icon>label</mat-icon>
+            </button>
+          </span>
+          <span matTooltip="Deselect All">
+            <button (click)="deselectAll()"
+                    mat-fab color="accent"
+                    [disabled]="(groupSelected?.name?.length || 0) <= 0">
+            <mat-icon>label_outline</mat-icon>
+            </button>
+          </span>
+    </div>
+
+    <mat-paginator #paginator [length]="rolesCount || 100"
+                   [pageSize]="10"
+                   [pageSizeOptions]="[5,10,25,100]"
+                   (page)="onPageChange($event)">
+    </mat-paginator>
+
+  </mat-card-actions>
+
+</mat-card>
