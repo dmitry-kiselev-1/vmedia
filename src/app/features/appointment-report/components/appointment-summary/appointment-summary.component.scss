@@ -1,0 +1,80 @@
+@import "../google-spreadsheet";
+
+$fixed-elements-height: 238px;
+$fixed-elements-width: 0.1fr;
+$scrollable-content-max-height: calc(100vh - #{$fixed-elements-height});
+$scrollable-content-max-width: calc(100vw - #{$fixed-elements-width});
+
+.metrics-color-1 {
+  background-color: #efefef !important;
+}
+.metrics-color-2 {
+  background-color: #fff2cc !important;
+}
+.metrics-color-3 {
+  background-color: #fce5cd !important;
+}
+.metrics-color-4 {
+  background-color: #f4cccc !important;
+}
+.metrics-color-5 {
+  background-color: #d9ead3 !important;
+}
+.metrics-color-6 {
+  background-color: #b6d7a8 !important;
+}
+.metrics-color-7 {
+  background-color: #ea9999 !important;
+}
+.metrics-color-8 {
+  background-color: #93c47d !important;
+}
+
+.grid-container {
+  height: 100%;
+  width: 100%;
+  overflow: auto
+}
+
+div.scrollable {
+  width: $scrollable-content-max-width;
+  //height: $scrollable-content-max-height;
+  overflow-x: visible;
+  overflow-y: visible;
+}
+
+th {
+  width: 129px !important;
+  border-bottom: 1px SOLID transparent;
+  border-right: 1px SOLID transparent;
+  text-align: center;
+  font-family: 'Arial' !important;
+  font-size: 10pt !important;
+  vertical-align: middle;
+  white-space: nowrap;
+  direction: ltr;
+  padding: 0px 3px 0px 3px;
+}
+
+tr {
+  height: 33px !important;
+  background-color: white /*!important*/;
+  color: black !important;
+}
+
+td {
+  background-color: transparent !important;
+  vertical-align: middle !important;
+  text-align: center !important;
+  border-bottom: 1px SOLID transparent;
+  border-right: 1px SOLID transparent;
+  font-family: 'Arial';
+  font-size: 10pt;
+}
+
+#tr-percents td {
+  font-weight: bold;
+}
+
+#tr-summaries td {
+}

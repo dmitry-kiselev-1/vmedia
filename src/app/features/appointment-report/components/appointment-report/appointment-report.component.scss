@@ -1,4 +1,4 @@
-@import "google-spreadsheet";
+@import "../google-spreadsheet";
 
 $fixed-elements-height: 238px;
 $fixed-elements-width: 0.1fr;
@@ -59,7 +59,7 @@ td {
 #td-note {
   white-space: pre-wrap !important;
   text-align: left !important;
-  background-color: white !important;
+  // background-color: white !important;
 }
 
 #th-note {

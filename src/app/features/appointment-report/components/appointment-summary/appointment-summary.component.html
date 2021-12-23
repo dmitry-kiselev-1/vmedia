@@ -1,1 +1,61 @@
-<p>appointment-summary works!</p>
+<!--<div class="scrollable">-->
+  <!--<div class="ritz grid-container" dir="ltr">-->
+    <table class="waffle" cellspacing="0" cellpadding="0">
+
+      <thead>
+        <tr id="tr-metrics">
+          <th class="metrics-color-1"></th>
+          <th class="metrics-color-2">Scheduled</th>
+          <th class="metrics-color-3">Rescheduled</th>
+          <th class="metrics-color-5">Verified</th>
+          <th class="metrics-color-4">Not Verified</th>
+          <th class="metrics-color-4">Cancelled</th>
+          <th class="metrics-color-4">Not Qualified</th>
+          <th class="metrics-color-4">Rep Cancelled</th>
+          <th class="metrics-color-4">Doctor Cancelled</th>
+          <th class="metrics-color-2">Confirmed</th>
+          <th class="metrics-color-5">Completed</th>
+          <th class="metrics-color-6">Interested</th>
+          <th class="metrics-color-7">Not Interested</th>
+          <th class="metrics-color-8">Producing</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr id="tr-summaries">
+          <td class="metrics-color-1">{{ MetricsAmount }}</td>
+          <td class="metrics-color-2">0</td>
+          <td class="metrics-color-3">0</td>
+          <td class="metrics-color-5">{{ (Verified$ | async) }}</td>
+          <td class="metrics-color-4">0</td>
+          <td class="metrics-color-4">0</td>
+          <td class="metrics-color-4">{{ NotQualified }}</td>
+          <td class="metrics-color-4">35</td>
+          <td class="metrics-color-4">9</td>
+          <td class="metrics-color-2">5</td>
+          <td class="metrics-color-5">0</td>
+          <td class="metrics-color-6">14</td>
+          <td class="metrics-color-7">15</td>
+          <td class="metrics-color-8">3</td>
+        </tr>
+        <tr id="tr-percents">
+          <td></td>
+          <td>0.00%</td>
+          <td>0.00%</td>
+          <td>{{ this.VerifiedPescent | percent:'2.2' }}</td>
+          <td>0.00%</td>
+          <td>0.00%</td>
+          <td>8.33%</td>
+          <td>36.46%</td>
+          <td>9.38%</td>
+          <td>5.21%</td>
+          <td>0.00%</td>
+          <td>14.58%</td>
+          <td>15.63%</td>
+          <td>3.13%</td>
+        </tr>
+      </tbody>
+
+    </table>
+  <!--</div>-->
+<!--</div>-->

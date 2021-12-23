@@ -20,7 +20,7 @@ export class AppointmentReportService extends BaseHttpService {
   get(): Observable<AppointmentReportModel[]> {
     return this.httpClient.get<{ data: AppointmentReportModel[] }>(this.apiUrl)
       .pipe(
-        tap(entities => environment.production ? null : console.log(`http get`, entities)),
+        // tap(entities => environment.production ? null : console.log(`http get`, entities)),
         map(response => response.data),
         catchError(this.handleError)
     );
