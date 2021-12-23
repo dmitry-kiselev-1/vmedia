@@ -40,7 +40,7 @@ export class InMemoryWebApiService implements InMemoryDbService {
       groups.push(group);
     }
 
-    //if (!environment.production) { console.log(groups, roles, rights, appointmentReports); }
+    // if (!environment.production) { console.log(groups, roles, rights, appointmentReports); }
 
     return {groups, roles, permissions: rights, 'appointment-reports': appointmentReports};
   }
