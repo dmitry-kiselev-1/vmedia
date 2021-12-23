@@ -1,0 +1,72 @@
+@import "google-spreadsheet";
+
+$fixed-elements-height: 238px;
+$fixed-elements-width: 0.1fr;
+$scrollable-content-max-height: calc(100vh - #{$fixed-elements-height});
+$scrollable-content-max-width: calc(100vw - #{$fixed-elements-width});
+
+.grid-container {
+  height: 100%;
+  width: 100%;
+  overflow: auto
+}
+
+div.scrollable {
+  width: $scrollable-content-max-width;
+  height: $scrollable-content-max-height;
+  overflow-x: visible;
+  overflow-y: visible;
+}
+
+// Scrollable table with fixed headers:
+table th {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
+th {
+  width: 135px !important;
+  border-bottom: 1px SOLID transparent;
+  border-right: 1px SOLID transparent;
+  background-color: #b7e1cd !important;;
+  text-align: center;
+  color: #f9f9f9 !important;
+  font-family: 'Arial' !important;
+  font-size: 10pt !important;
+  vertical-align: middle;
+  white-space: nowrap;
+  direction: ltr;
+  padding: 0px 3px 0px 3px;
+}
+
+tr {
+  height: 33px !important;
+  background-color: white /*!important*/;
+  color: black !important;
+}
+
+td {
+  background-color: transparent !important;
+  vertical-align: middle !important;
+  text-align: center !important;
+}
+
+#th-doctor {
+  color: black !important;
+}
+
+#td-note {
+  white-space: pre-wrap !important;
+  text-align: left !important;
+  background-color: white !important;
+}
+
+#th-note {
+  width: 500px !important;
+  direction: ltr !important;
+}
+
+#td-freezebar {
+  height: 6px !important;
+}

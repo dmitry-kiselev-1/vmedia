@@ -1,0 +1,51 @@
+<div class="scrollable">
+  <div class="ritz grid-container" dir="ltr">
+    <table class="waffle" cellspacing="0" cellpadding="0">
+
+      <thead>
+        <tr style="height:40px;">
+          <th>Status</th>
+          <th>Month Set</th>
+          <th>Date</th>
+          <th id="th-doctor">Doctor</th>
+          <th>Rep</th>
+          <th>City</th>
+          <th>State</th>
+          <th>Phone</th>
+          <th>Lab</th>
+          <th>Lunch Date</th>
+          <th>Month Scheduled</th>
+          <th>POC</th>
+          <th>Setter</th>
+          <th>Confirmation Call Date</th>
+          <th id="th-note">Notes</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr id="td-freezebar"></tr>
+
+        <tr *ngFor="let row of appointmentReport$ | async"
+            [style.background-color]="rowColor(row)">
+          <td>{{row?.Status}}</td>
+          <td>{{row?.MonthSet}}</td>
+          <td>{{row?.Date}}</td>
+          <td>{{row?.Doctor}}</td>
+          <td>{{row?.Rep}}</td>
+          <td>{{row?.City}}</td>
+          <td>{{row?.State}}</td>
+          <td>{{row?.Phone}}</td>
+          <td>{{row?.Lab}}</td>
+          <td>{{row?.LunchDate}}</td>
+          <td>{{row?.MonthScheduled}}</td>
+          <td>{{row?.POC}}</td>
+          <td>{{row?.Setter}}</td>
+          <td>{{row?.ConfirmationCallDate}}</td>
+          <td id="td-note">{{row?.Notes}}</td>
+        </tr>
+      </tbody>
+
+    </table>
+  </div>
+
+</div>

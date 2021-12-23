@@ -7,6 +7,9 @@ import { RightModel } from '../features/autorization/models/right.model';
 import { RoleModel } from '../features/autorization/models/role.model';
 import { environment } from '../../environments/environment';
 
+import { AppointmentReportModel } from '../features/appointment-report/models/appointment-report.model';
+import AppointmentReportsData from '../../assets/appointment-reports-data.json';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -18,6 +21,7 @@ export class InMemoryWebApiService implements InMemoryDbService {
     const rights: RightModel[] = [];
     const roles: RoleModel[] = [];
     const groups: GroupModel[] = [];
+    const appointmentReports: AppointmentReportModel[] = AppointmentReportsData;
 
     for (let i = 1; i <= entityCount; i++) {
       const right = new RightModel(`${i}`, `Right ${i}`);
@@ -36,9 +40,9 @@ export class InMemoryWebApiService implements InMemoryDbService {
       groups.push(group);
     }
 
-    // if (!environment.production) { console.log(groups, roles, rights); }
+    //if (!environment.production) { console.log(groups, roles, rights, appointmentReports); }
 
-    return {groups, roles, permissions: rights};
+    return {groups, roles, permissions: rights, 'appointment-reports': appointmentReports};
   }
 
   private randomBetween(min: number, max: number): number {
