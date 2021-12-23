@@ -1,7 +1,12 @@
 <h1 class="app-header">CSS Grid Responsive Layout</h1>
 <div class="grid-container">
   <div class="header">Header Component</div>
-  <div class="menu">Menu Component</div>
+  <div class="menu">Menu Component
+    <mat-nav-list role="navigation" style="margin-top: 20px !important;">
+      <a mat-list-item [routerLink]="'/autorization'" routerLinkActive="active-link">autorization module</a>
+      <a mat-list-item [routerLink]="'/appointment-report'" routerLinkActive="active-link">report module</a>
+    </mat-nav-list>
+  </div>
   <div class="main">
     <ng-content></ng-content>
   </div>

@@ -13,27 +13,29 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule, InMemoryBackendConfigArgs } from 'angular-in-memory-web-api';
 import { InMemoryWebApiService } from './core/in-memory-web-api.service';
 import { environment } from '../environments/environment';
+import { MatListModule } from "@angular/material/list";
 
 @NgModule({
   declarations: [
     AppComponent,
     LayoutComponent
   ],
-  imports: [
-    CoreModule,
-    BrowserModule,
-    BrowserAnimationsModule,
-    AppRoutingModule,
-    HttpClientModule,
-    // HttpClientInMemoryWebApiModule.forRoot(InMemoryWebApiService,
-    //    { delay: 0, dataEncapsulation: true } as InMemoryBackendConfigArgs)
-    /*
-    environment.production
-      ? []
-      : HttpClientInMemoryWebApiModule.forRoot(InMemoryWebApiService,
-        { delay: 500, dataEncapsulation: true } as InMemoryBackendConfigArgs)
-    */
-  ],
+    imports: [
+        CoreModule,
+        BrowserModule,
+        BrowserAnimationsModule,
+        AppRoutingModule,
+        HttpClientModule,
+        MatListModule,
+        // HttpClientInMemoryWebApiModule.forRoot(InMemoryWebApiService,
+        //    { delay: 0, dataEncapsulation: true } as InMemoryBackendConfigArgs)
+        /*
+        environment.production
+          ? []
+          : HttpClientInMemoryWebApiModule.forRoot(InMemoryWebApiService,
+            { delay: 500, dataEncapsulation: true } as InMemoryBackendConfigArgs)
+        */
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
