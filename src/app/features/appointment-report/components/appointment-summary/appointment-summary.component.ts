@@ -16,8 +16,14 @@ export class AppointmentSummaryComponent implements OnInit {
 
   constructor() { }
 
-  async ngOnInit(): Promise<void> {
+    async ngOnInit(): Promise<void> {
     this.model = await this.calculateMetricsAsync();
+
+    /* Observable alternative example below:
+    model$?: Observable<AppointmentSummaryModel>;
+    this.model$ = from(this.calculateMetricsAsync());
+    {{ (model$ | async)?.Scheduled }}
+    */
   }
 
   private async calculateMetricsAsync(): Promise<AppointmentSummaryModel> {
