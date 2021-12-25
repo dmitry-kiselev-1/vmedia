@@ -23,36 +23,36 @@
 
       <tbody>
         <tr id="tr-summaries">
-          <td class="metrics-color-1">{{ MetricsAmount }}</td>
-          <td class="metrics-color-2">0</td>
-          <td class="metrics-color-3">0</td>
-          <td class="metrics-color-5">{{ (Verified$ | async) }}</td>
-          <td class="metrics-color-4">0</td>
-          <td class="metrics-color-4">0</td>
-          <td class="metrics-color-4">{{ NotQualified }}</td>
-          <td class="metrics-color-4">35</td>
-          <td class="metrics-color-4">9</td>
-          <td class="metrics-color-2">5</td>
-          <td class="metrics-color-5">0</td>
-          <td class="metrics-color-6">14</td>
-          <td class="metrics-color-7">15</td>
-          <td class="metrics-color-8">3</td>
+          <td class="metrics-color-1">{{ model.MetricsAmount }}</td>
+          <td class="metrics-color-2">{{ model.Scheduled }}</td>
+          <td class="metrics-color-3">{{ model.Rescheduled }}</td>
+          <td class="metrics-color-5">{{ model.Verified }}</td> <!-- (Verified$ | async) }} -->
+          <td class="metrics-color-4">{{ model.NotVerified}}</td>
+          <td class="metrics-color-4">{{ model.Cancelled }}</td>
+          <td class="metrics-color-4">{{ model.NotQualified }}</td>
+          <td class="metrics-color-4">{{ model.RepCancelled }}</td>
+          <td class="metrics-color-4">{{ model.DoctorCancelled }}</td>
+          <td class="metrics-color-2">{{ model.Confirmed }}</td>
+          <td class="metrics-color-5">{{ model.Completed }}</td>
+          <td class="metrics-color-6">{{ model.Interested }}</td>
+          <td class="metrics-color-7">{{ model.NotInterested }}</td>
+          <td class="metrics-color-8">{{ model.Producing }}</td>
         </tr>
         <tr id="tr-percents">
           <td></td>
-          <td>0.00%</td>
-          <td>0.00%</td>
-          <td>{{ this.VerifiedPescent | percent:'2.2' }}</td>
-          <td>0.00%</td>
-          <td>0.00%</td>
-          <td>8.33%</td>
-          <td>36.46%</td>
-          <td>9.38%</td>
-          <td>5.21%</td>
-          <td>0.00%</td>
-          <td>14.58%</td>
-          <td>15.63%</td>
-          <td>3.13%</td>
+          <td>{{ model.Scheduled / model.MetricsAmount | percent:'2.2' }}</td>
+          <td>{{ model.Rescheduled / model.MetricsAmount | percent:'2.2' }}</td>
+          <td>{{ model.Verified / model.MetricsAmount | percent:'2.2' }}</td>
+          <td>{{ model.NotVerified / model.MetricsAmount | percent:'2.2' }}</td>
+          <td>{{ model.Cancelled / model.MetricsAmount | percent:'2.2' }}</td>
+          <td>{{ model.NotQualified / model.MetricsAmount | percent:'2.2' }}</td>
+          <td>{{ model.RepCancelled / model.MetricsAmount | percent:'2.2' }}</td>
+          <td>{{ model.DoctorCancelled / model.MetricsAmount | percent:'2.2' }}</td>
+          <td>{{ model.Confirmed / model.MetricsAmount | percent:'2.2' }}</td>
+          <td>{{ model.Completed / model.MetricsAmount | percent:'2.2' }}</td>
+          <td>{{ model.Interested / model.MetricsAmount | percent:'2.2' }}</td>
+          <td>{{ model.NotInterested / model.MetricsAmount | percent:'2.2' }}</td>
+          <td>{{ model.Producing / model.MetricsAmount | percent:'2.2' }}</td>
         </tr>
       </tbody>
 
